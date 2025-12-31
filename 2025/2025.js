@@ -394,4 +394,37 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (event.key === "ArrowUp") move("up");
     else if (event.key === "ArrowDown") move("down");
   });
+
+  // タッチスワイプ対応（モバイル操作）
+  (() => {
+    let startX = 0;
+    let startY = 0;
+    const threshold = 30;
+    const target = game || document;
+
+    const onStart = (e) => {
+      const t = e.touches?.[0];
+      if (!t) return;
+      startX = t.clientX;
+      startY = t.clientY;
+    };
+
+    const onEnd = (e) => {
+      if (!gameActive) return;
+      const t = e.changedTouches?.[0];
+      if (!t) return;
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      if (Math.abs(dx) < threshold && Math.abs(dy) < threshold) return;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        move(dx > 0 ? "right" : "left");
+      } else {
+        move(dy > 0 ? "down" : "up");
+      }
+      if (e.cancelable) e.preventDefault();
+    };
+
+    target?.addEventListener("touchstart", onStart, { passive: true });
+    target?.addEventListener("touchend", onEnd, { passive: false });
+  })();
 });

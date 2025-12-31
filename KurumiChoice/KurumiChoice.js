@@ -283,6 +283,35 @@ const wireGameControls = () => {
       handleChoice("right");
     }
   });
+
+  // タッチスワイプ対応（左右のみ）
+  (() => {
+    let startX = 0;
+    let startY = 0;
+    const threshold = 30;
+    const target = qs("game-screen") || document;
+
+    const onStart = (e) => {
+      const t = e.touches?.[0];
+      if (!t) return;
+      startX = t.clientX;
+      startY = t.clientY;
+    };
+
+    const onEnd = (e) => {
+      if (!gameActive) return;
+      const t = e.changedTouches?.[0];
+      if (!t) return;
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      if (Math.abs(dx) < threshold || Math.abs(dx) < Math.abs(dy)) return;
+      handleChoice(dx > 0 ? "right" : "left");
+      if (e.cancelable) e.preventDefault();
+    };
+
+    target?.addEventListener("touchstart", onStart, { passive: true });
+    target?.addEventListener("touchend", onEnd, { passive: false });
+  })();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
