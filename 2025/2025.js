@@ -278,6 +278,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const flat = grid.flat();
+
+    // 盤面が変わらなかった入力ではタイル追加やスコア加算をしない
+    if (!moved) {
+      if (!canMove(flat)) {
+        renderTiles();
+        endGame();
+      }
+      return;
+    }
+
     rebuildTilesFromValues(flat);
     if (totalGain) setScore(score + totalGain);
     if (!canMove(flat)) {
