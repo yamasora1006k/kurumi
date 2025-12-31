@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="firebase.js"></script>
+  </head>
+  <body>
+    <a class="ranking-btn" href="./ranking/ranking.html" aria-label="ランキング">
+      <img src="assets/imgs/crown/Crown.png" alt="ランキング" />
+    </a>
+    <div class="page">
+      <div class="top-row">
+        <div class="stats">
+          <div class="stat"><span class="label" id="label-played">Played:</span> <span id="played-count">3</span></div>
+          <div class="stat"><span class="label" id="label-mystery">??? /</span> <span id="mystery-total">6</span></div>
+          <div class="stat"><span class="label" id="label-today">Today:</span> <span id="today-count">2</span></div>
+        </div>
+        <div class="timeline" aria-hidden="true">
+          <div class="timeline-label top" id="start-date">2009 12 / 31</div>
+          <div class="timeline-line">
+            <span class="timeline-arrow"></span>
+          </div>
+          <div class="timeline-label bottom" id="end-date">2025 12 / 31</div>
+        </div>
+      </div>
+
+      <!-- <section class="comment-marquee">
+        <div class="comment-marquee__title">HPB Kurumi</div>
+        <div class="comment-marquee__box">
+          <div class="comment-marquee__track" id="comment-track"></div>
+        </div>
+      </section> -->
+
+      <main class="main-area">
+        <div class="card-wrap">
+          <div class="game-label" style="color: rgb(0, 0, 0); font-size: 24px;">＼ 正しい來美はどれ?! ／</div>
+          <a class="card" id="left-card" href="KurumiChoice/KurumiChoice.html">
+          </a>
+        </div>
+        <div class="card-wrap">
+          <div class="game-label" style="color: rgb(0, 0, 0); font-size: 24px;">＼ 2025ゲーム ／</div>
+          <a class="card" id="right-card" href="2025/2025.html">
+
+          </a>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="comment-heading">＼ くるみに一言どうですか？ ／</div>
+        <form class="comment-form" id="comment-form">
+          <input
+            id="comment-name"
+            class="comment-name"
+            name="name"
+            type="text"
+            placeholder="名前"
+            autocomplete="off"
+          />
+          <textarea
+            id="comment-input"
+            class="comment-input"
+            name="comment"
+            rows="1"
+            autocomplete="off"
+            placeholder="今日はくるみの誕生日"
+          ></textarea>
+          <button class="comment-submit" type="submit">送信</button>
+        </form>
+        <div class="comment-status" id="comment-status" aria-live="polite" style="color: green;"></div>
+      </footer>
+    </div>
+
+    <script src="home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap");
+@font-face {
+  font-family: "Teachers";
+  src: url("assets/fonts/Webfonts/Teachers-Regular.woff2") format("woff2"),
+    url("assets/fonts/Webfonts/Teachers-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Teachers";
+  src: url("assets/fonts/Webfonts/Teachers-Bold.woff2") format("woff2"),
+    url("assets/fonts/Webfonts/Teachers-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --ink: #0c0c0c;
+  --paper: #ffffff;
+  --shadow: #0c0c0c;
+  --card-radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Teachers", "M PLUS Rounded 1c", "Helvetica Neue", "Segoe UI", sans-serif;
+  min-height: 100vh;
+  cursor: url("assets/imgs/cursor/1.png") 16 16, auto;
+}
+
+.ranking-btn {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 14px;
+  transition: transform 120ms ease;
+  background: transparent;
+  box-shadow: none;
+  z-index: 50;
+}
+
+.ranking-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ranking-btn:hover {
+  transform: translateY(-2px);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 52px 40px;
+  position: relative;
+}
+
+.top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.header-row {
+  display: none;
+}
+
+.stat .label {
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.timeline {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  padding-right: 6px;
+}
+
+.timeline-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: right;
+}
+
+.timeline-line {
+  position: relative;
+  flex: 1;
+  width: 2px;
+  background: var(--ink);
+}
+
+.timeline-line .timeline-arrow {
+  position: absolute;
+  bottom: -16px;
+  right: -7px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 16px solid var(--ink);
+}
+
+
+
+.main-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 96px;
+  padding: 0 0 20px;
+  position: relative;
+}
+
+.card {
+  width: 380px;
+  height: 210px;
+  border: 3px solid var(--ink);
+  border-radius: var(--card-radius);
+  background: var(--paper);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 4px 7px 0 var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  text-align: center;
+}
+
+.game-label {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.card:focus-visible,
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 11px 0 var(--shadow);
+}
+
+.card:active {
+  transform: translateY(0);
+  box-shadow: 2px 6px 0 var(--shadow);
+}
+
+.card-title {
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85);
+}
+
+#left-card {
+  background-image: url("assets/imgs/game1.png");
+}
+
+#right-card {
+  background-image: url("assets/imgs/game2.png");
+}
+
+.footer {
+  text-align: center;
+  margin-top: 8px;
+  padding-bottom: 4px;
+}
+
+.comment-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.comment-heading {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+.comment-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.comment-input {
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  resize: none;
+  height: 46px;
+  line-height: 1.4;
+}
+
+.comment-input:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.18);
+}
+
+.comment-name {
+  min-width: 120px;
+  max-width: 120px;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.comment-name:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.18);
+}
+
+.comment-submit {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.8px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: 0 3px 0 var(--shadow);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.comment-submit:hover,
+.comment-submit:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--shadow);
+}
+
+.comment-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 0 var(--shadow);
+}
+
+.comment-status {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #2f2f2f;
+  min-height: 16px;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 24px 24px 32px;
+  }
+
+  .timeline {
+    top: 24px;
+    right: 24px;
+    bottom: 32px;
+  }
+
+  .main-area {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .timeline {
+    min-height: 200px;
+  }
+}

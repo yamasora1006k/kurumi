@@ -1,0 +1,191 @@
+@font-face {
+  font-family: "Teachers";
+  src: url("../assets/fonts/Webfonts/Teachers-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Webfonts/Teachers-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Teachers";
+  src: url("../assets/fonts/Webfonts/Teachers-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Webfonts/Teachers-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --ink: #0f0f0f;
+  --muted: #7a7a7a;
+  --gold: #e2b400;
+  --silver: #b3b3b3;
+  --bronze: #b46c2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fdfbf8;
+  color: var(--ink);
+  font-family: "Teachers", "Helvetica Neue", "Segoe UI", sans-serif;
+}
+
+.r-home {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.r-home img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.r-home::after {
+    width: 80px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  content: "ホームへ！";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.r-home:hover img {
+  opacity: 0;
+}
+
+.r-home:hover::after {
+  opacity: 1;
+}
+
+.r-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 80px 60px 60px;
+  align-items: start;
+  justify-items: center;
+}
+
+.r-column {
+  width: 100%;
+  max-width: 440px;
+}
+
+.r-title {
+  margin: 0 0 20px;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.r-title-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.r-hint {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.r-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.r-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.r-rank {
+  width: 60px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.r-rank img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.r-score {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.r-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.r-crown {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.r-top1 {
+  color: var(--gold);
+}
+.r-top2 {
+  color: var(--silver);
+}
+.r-top3 {
+  color: var(--bronze);
+}
+
+@media (max-width: 900px) {
+  .r-page {
+    grid-template-columns: 1fr;
+    padding: 80px 24px 60px;
+  }
+
+  .r-title {
+    font-size: 28px;
+  }
+
+  .r-item {
+    font-size: 24px;
+  }
+}

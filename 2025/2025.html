@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="2025.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="../firebase.js"></script>
+  </head>
+  <body>
+    <a class="y-home" href="../home.html" aria-label="ホームへ">
+      <img src="../assets/imgs/home.png" alt="home" />
+    </a>
+
+    <div class="y-page" id="selection-screen">
+      <main class="y-main">
+        <div class="y-title-wrap">
+          <span class="y-arrow y-arrow--top">↓</span>
+          <div class="y-title" id="year-title">
+            <span class="y-digit" data-part="202">202</span><span class="y-digit" data-part="5">5</span>
+          </div>
+          <span class="y-arrow y-arrow--right">←</span>
+        </div>
+        <button class="y-start" type="button" id="start-button">スタート</button>
+      </main>
+
+      <footer class="y-footer">＼ 次の平方年は2116年！ ／</footer>
+    </div>
+
+    <div class="g-page is-hidden" id="game-screen">
+      <div class="code-tag" aria-label="binary hint">
+        <span class="code-tag__text code-tag__primary">11111101001 | 10000</span>
+        <span class="code-tag__text code-tag__hover">(base-2)</span>
+      </div>
+      <div class="g-board" id="game-board"></div>
+      <div class="g-score" id="game-score">0</div>
+    </div>
+
+    <div class="gameover is-hidden" id="gameover-screen">
+      <div class="gameover__content">
+        <div class="gameover__title">ゲームオーバー</div>
+        <div class="gameover__score" id="final-score">0</div>
+        <button class="y-start gameover__restart" type="button" id="restart-button">もう一度</button>
+        <button class="y-start gameover__save" type="button" id="save-score-button">スコアを記録</button>
+      </div>
+      <div class="gameover__board" id="gameover-board"></div>
+    </div>
+
+    <div class="save-modal is-hidden" id="save-modal" aria-hidden="true">
+      <div class="save-modal__frame">
+        <input
+          id="save-name-input"
+          class="save-modal__input"
+          type="text"
+          name="save-name"
+          placeholder="名前を入力してね"
+          autocomplete="off"
+          aria-label="名前を入力してね"
+        />
+        <div class="save-modal__actions">
+          <button class="save-modal__cancel" type="button" id="save-name-cancel">キャンセル</button>
+          <button class="save-modal__submit" type="button" id="save-name-submit">完了</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="2025.js"></script>
+  </body>
+</html>

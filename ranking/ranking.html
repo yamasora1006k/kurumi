@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranking</title>
+    <link rel="stylesheet" href="../ranking/ranking.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="../firebase.js"></script>
+  </head>
+  <body>
+    <a class="r-home" href="../home.html" aria-label="ホームへ！">
+      <img src="../assets/imgs/home.png" alt="home" />
+    </a>
+    <main class="r-page">
+      <section class="r-column">
+        <div class="r-hint">＼ 移動できるよ ／</div>
+        <a class="r-title-link" href="../KurumiChoice/KurumiChoice.html">
+          <h2 class="r-title">來選別ランキング</h2>
+        </a>
+        <ul class="r-list" id="list-kurumi"></ul>
+      </section>
+      <section class="r-column">
+        <div class="r-hint">＼ 移動できるよ ／</div>
+        <a class="r-title-link" href="../2025/2025.html">
+          <h2 class="r-title">2025ランキング</h2>
+        </a>
+        <ul class="r-list" id="list-2025"></ul>
+      </section>
+    </main>
+
+    <script src="../ranking/ranking.js"></script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Kurumi Choice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="KurumiChoice.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="../firebase.js"></script>
+  </head>
+  <body>
+    <a class="kc-home" href="../home.html" aria-label="ホームへ">
+      <img src="../assets/imgs/home.png" alt="home" />
+    </a>
+
+    <div class="kc-page" id="selection-screen">
+      <button class="kc-nav kc-nav--prev" type="button" id="prev-btn" aria-label="前へ">
+        <span class="kc-arrow kc-arrow--left" aria-hidden="true"></span>
+        <span class="kc-nav-label" id="prev-label"></span>
+      </button>
+
+      <div class="kc-center">
+        <h1 class="kc-title" id="choice-title"></h1>
+        <button class="kc-start" type="button" id="start-button">スタート</button>
+      </div>
+
+      <button class="kc-nav kc-nav--next" type="button" id="next-btn" aria-label="次へ">
+        <span class="kc-nav-label" id="next-label"></span>
+        <span class="kc-arrow kc-arrow--right" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="kc-game is-hidden" id="game-screen">
+      <button class="kc-game__arrow kc-game__arrow--left" type="button" id="game-left" aria-label="左へ">
+        <span class="kc-arrow kc-arrow--left" aria-hidden="true"></span>
+        <span class="kc-game__label">その他</span>
+      </button>
+
+      <div class="kc-game__center">
+        <div class="kc-game__score-bg" id="game-score-bg">0</div>
+        <div class="kc-game__name" id="game-name">宇都宮來美</div>
+      </div>
+
+      <button class="kc-game__arrow kc-game__arrow--right" type="button" id="game-right" aria-label="右へ">
+        <span class="kc-game__label">宇都宮來美</span>
+        <span class="kc-arrow kc-arrow--right" aria-hidden="true"></span>
+      </button>
+
+      <div class="kc-game__timer" id="game-timer">45.0 s</div>
+      <div class="kc-game__bonus is-hidden" id="game-bonus">+0.1 s</div>
+      <img class="kc-game__bonus-img is-hidden" id="game-bonus-img" src="../assets/imgs/kurumi01.png" alt="bonus" />
+    </div>
+
+    <div class="kc-gameover is-hidden" id="gameover-screen">
+      <div class="kc-gameover__rain" id="gameover-rain"></div>
+      <div class="kc-gameover__content">
+        <div class="kc-gameover__title">ゲームオーバー</div>
+        <div class="kc-gameover__score" id="final-score">0</div>
+        <button class="kc-start kc-gameover__restart" type="button" id="gameover-restart">もう一度</button>
+        <button class="kc-start kc-gameover__save" type="button" id="gameover-save">スコアを記録</button>
+      </div>
+    </div>
+
+    <div class="save-modal is-hidden" id="save-modal" aria-hidden="true">
+      <div class="save-modal__frame">
+        <input
+          id="save-name-input"
+          class="save-modal__input"
+          type="text"
+          name="save-name"
+          placeholder="名前を入力してね"
+          autocomplete="off"
+          aria-label="名前を入力してね"
+        />
+        <div class="save-modal__actions">
+          <button class="save-modal__cancel" type="button" id="save-name-cancel">キャンセル</button>
+          <button class="save-modal__submit" type="button" id="save-name-submit">完了</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="KurumiChoice.js"></script>
+  </body>
+</html>
