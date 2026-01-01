@@ -64,6 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
       let raw = [];
       if (typeof fetchEntries === "function") {
         raw = await fetchEntries(200);
+      } else if (window.firebase?.firestore) {
+        const db = window.firebase.firestore();
+        const snap = await db.collection("comments").orderBy("createdAt", "desc").limit(200).get();
+        raw = snap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       } else if (typeof fetchLegacy === "function") {
         const texts = await fetchLegacy(200);
         raw = texts.map((text, index) => ({ id: `legacy-${index}`, text, name: "" }));
