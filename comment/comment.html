@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&family=Caveat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="comment.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="../firebase.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="home-link" href="../home.html" aria-label="ホームへ戻る">
+        <img class="home-icon" src="../assets/imgs/home.png" alt="" />
+      </a>
+      <h1 class="heading"><span class="slash">\</span> Birthday Card <span class="slash">/</span></h1>
+      <!-- <div class="status" id="status" aria-live="polite">読み込み中…</div> -->
+    </header>
+
+    <main class="page">
+      <section class="cards" id="wish-grid" aria-live="polite"></section>
+    </main>
+
+    <script src="comment.js"></script>
+  </body>
+</html>
