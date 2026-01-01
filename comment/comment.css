@@ -172,4 +172,50 @@ a {
   .page {
     padding: 10px 18px 60px;
   }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px 16px;
+  }
+
+  .card {
+    max-width: none;
+    padding: 14px 14px;
+    border-radius: 18px;
+    box-shadow: 2px 3px 0 var(--border);
+  }
+
+  .card-text {
+    font-size: 20px;
+  }
+
+  .card-name {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 18px 16px 6px;
+  }
+
+  .heading {
+    font-size: 26px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 12px 12px;
+    aspect-ratio: auto;
+  }
+
+  .card-text {
+    font-size: 18px;
+    line-height: 1.4;
+  }
 }
